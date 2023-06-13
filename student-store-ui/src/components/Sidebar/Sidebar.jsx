@@ -6,7 +6,7 @@ export default function Sidebar(props) {
 
   return (
     <section className="sidebar">
-
+      <div className="wrapper">
         <button className="toggle-button">
           <i className="material-icons md-48">arrow_forward</i>
         </button>
@@ -23,7 +23,7 @@ export default function Sidebar(props) {
             </span>
           </div>
         </div>
-
+      </div>
     </section>
   );
 }

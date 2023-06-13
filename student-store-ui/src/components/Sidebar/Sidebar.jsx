@@ -1,10 +1,29 @@
-import * as React from "react"
-import "./Sidebar.css"
+import * as React from "react";
+import "./Sidebar.css";
 
-export default function Sidebar() {
+export default function Sidebar(props) {
+  // const[open, setOpen] = useState(false);
+
   return (
     <section className="sidebar">
-      <p>Sidebar</p>
+
+        <button className="toggle-button">
+          <i className="material-icons md-48">arrow_forward</i>
+        </button>
+        <div className="shopping-cart">
+          <div className="icons">
+            <span>
+              <i className="material-icons md-48">add_shopping_cart</i>
+            </span>
+            <span>
+              <i className="material-icons md-48">monetization_on</i>
+            </span>
+            <span>
+              <i className="material-icons md-48">fact_check</i>
+            </span>
+          </div>
+        </div>
+
     </section>
-  )
+  );
 }

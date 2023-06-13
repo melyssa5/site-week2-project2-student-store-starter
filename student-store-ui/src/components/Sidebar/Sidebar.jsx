@@ -1,13 +1,16 @@
 import * as React from "react";
 import "./Sidebar.css";
 
-export default function Sidebar(props) {
-  // const[open, setOpen] = useState(false);
+export default function Sidebar({isOpen, handleOnToggle}) {
+
+  const sidebar = isOpen ? "sidebar open":"sidebar closed";
+
+  
 
   return (
-    <section className="sidebar">
+    <section className= {sidebar}>
       <div className="wrapper">
-        <button className="toggle-button">
+        <button className="toggle-button" onClick={handleOnToggle}>
           <i className="material-icons md-48">arrow_forward</i>
         </button>
         <div className="shopping-cart">

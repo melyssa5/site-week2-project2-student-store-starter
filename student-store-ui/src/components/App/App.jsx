@@ -1,12 +1,14 @@
 import * as React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Sidebar from "../Sidebar/Sidebar";
 import Home from "../Home/Home";
 import Hero from "../Hero/Hero";
+import SubNavbar from "../SubNavbar/SubNavbar";
 import "./App.css";
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import About from "../About/About";
 
 
 export default function App() {
@@ -21,7 +23,7 @@ export default function App() {
     });
   }, []);
 
-  const [sidebarOpen, setSidebar] = useState(false)
+  const [sidebarOpen, setSidebar] = useState(false);
   
   function handleOnToggle(){
     setSidebar(!sidebarOpen);
@@ -37,8 +39,14 @@ export default function App() {
           <Navbar />
           <Sidebar isOpen={sidebarOpen} handleOnToggle={handleOnToggle} />
           <Hero />
+          <SubNavbar items={products} setItems={setProducts}/>
           <Home products={products} />
         </main>
+{/* 
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes> */}
       </BrowserRouter>
     </div>
   );

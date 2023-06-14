@@ -1,5 +1,6 @@
 import * as React from "react"
 import "./Home.css"
+import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 
 export default function Home({products}) {
 
@@ -15,13 +16,11 @@ export default function Home({products}) {
     );
   }
 
-  function handleOnToggle(){
-    
-  }
 
 
   return (
     <div className="home">
+      {/* <Link to="/About">click me to route</Link> */}
       <div className="product-grid" id="Buy">
         <div className="content">
           <div className="grid">

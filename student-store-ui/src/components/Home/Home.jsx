@@ -17,29 +17,15 @@ export default function Home({products, category}) {
   }
 
 
-  console.log(products)
-  console.log(category)
-
   const filtered = products.filter(product => {
     return product.category === category.toLowerCase();
   });
-
-
-  function returnProduct(){
-    if (category == "All Categories"){
-      return products.map((product) => createProduct(product))
-    }
-    else{
-      return filtered.map((product) => createProduct(product))
-    }
-  }
 
 
   const returnItems = category == "All Categories" ? products : filtered;
 
   return (
     <div className="home">
-      {/* <Link to="/About">click me to route</Link> */}
       <div className="product-grid" id="Buy">
         <div className="content">
           <div className="grid">

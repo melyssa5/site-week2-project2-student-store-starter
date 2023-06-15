@@ -2,7 +2,7 @@ import * as React from "react";
 import "./SubNavbar.css";
 import { useState } from "react";
 
-export default function SubNavbar({ items, setItems, category, setCategory }) {
+export default function SubNavbar({category, setCategory, searchInput, setSearchInput}) {
   const [active, setActive] = useState(true);
 
   //function that handles when the menu button is clicked, changing visibility of category menu
@@ -12,19 +12,21 @@ export default function SubNavbar({ items, setItems, category, setCategory }) {
 
   const categoryMenu = active ? "category-menu open" : "category-menu closed";
 
-  const categoryClass = { "All Categories": "is-active" };
-
   function handleCategoryClick(event) {
     const newCat = event.target.innerText;
     setCategory(newCat);
   }
+
+  const searchItems = (searchValue) => {
+    setSearchInput(searchValue)
+}
 
   return (
     <nav className="sub-navbar">
       <div className="content">
         <div className="row">
           <div className="search-bar">
-            <input type="text" name="search" placeholder="Search" />
+            <input type="text" onChange={(e) => searchItems(e.target.value)} name="search" placeholder="Search"/>
             <i className="material-icons">search</i>
           </div>
           <div className="links">

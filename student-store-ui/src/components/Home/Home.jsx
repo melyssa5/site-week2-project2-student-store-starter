@@ -2,7 +2,7 @@ import * as React from "react"
 import "./Home.css"
 import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 
-export default function Home({products}) {
+export default function Home({products, category}) {
 
   function createProduct(info) {
     return (

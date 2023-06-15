@@ -8,7 +8,6 @@ import SubNavbar from "../SubNavbar/SubNavbar";
 import "./App.css";
 import { useEffect, useState } from "react";
 import axios from 'axios';
-import About from "../About/About";
 
 
 export default function App() {
@@ -16,6 +15,10 @@ export default function App() {
   const url = "https://codepath-store-api.herokuapp.com/store";
   
   const [products, setProducts] = useState([]);
+
+  // variable that keeps track of the variable that is currently selected in the category menu
+  const [category, setCategory] = useState("All Categories");
+
 
   useEffect(() => {
     axios.get(url).then((response) => {
@@ -30,6 +33,7 @@ export default function App() {
   }
   
 
+  console.log(category)
 
 
   return (
@@ -39,8 +43,8 @@ export default function App() {
           <Navbar />
           <Sidebar isOpen={sidebarOpen} handleOnToggle={handleOnToggle} />
           <Hero />
-          <SubNavbar items={products} setItems={setProducts}/>
-          <Home products={products} />
+          <SubNavbar items={products} setItems={setProducts} category={category} setCategory={setCategory}/>
+          <Home products={products}/>
         </main>
 {/* 
         <Routes>

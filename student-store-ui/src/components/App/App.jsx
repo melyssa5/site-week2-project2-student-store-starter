@@ -8,6 +8,7 @@ import SubNavbar from "../SubNavbar/SubNavbar";
 import "./App.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import ProductDetail from "../ProductDetail/ProductDetail";
 
 export default function App() {
   const url = "https://codepath-store-api.herokuapp.com/store";
@@ -55,11 +56,10 @@ export default function App() {
           />
           <Home products={products} category={category} searchInput={searchInput}/>
         </main>
-        {/* 
+
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-        </Routes> */}
+          <Route path="/store/:id" element={<ProductDetail />} />
+        </Routes>
       </BrowserRouter>
     </div>
   );

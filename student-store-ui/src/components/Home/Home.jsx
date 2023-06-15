@@ -17,6 +17,25 @@ export default function Home({products, category}) {
   }
 
 
+  console.log(products)
+  console.log(category)
+
+  const filtered = products.filter(product => {
+    return product.category === category.toLowerCase();
+  });
+
+
+  function returnProduct(){
+    if (category == "All Categories"){
+      return products.map((product) => createProduct(product))
+    }
+    else{
+      return filtered.map((product) => createProduct(product))
+    }
+  }
+
+
+  const returnItems = category == "All Categories" ? products : filtered;
 
   return (
     <div className="home">
@@ -24,7 +43,7 @@ export default function Home({products, category}) {
       <div className="product-grid" id="Buy">
         <div className="content">
           <div className="grid">
-            {products.map((product) => createProduct(product))}
+            {returnItems.map((product) => createProduct(product))}
           </div>
         </div>
       </div>

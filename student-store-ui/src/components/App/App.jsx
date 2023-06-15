@@ -44,7 +44,7 @@ export default function App() {
           <Sidebar isOpen={sidebarOpen} handleOnToggle={handleOnToggle} />
           <Hero />
           <SubNavbar items={products} setItems={setProducts} category={category} setCategory={setCategory}/>
-          <Home products={products}/>
+          <Home products={products} category={category}/>
         </main>
 {/* 
         <Routes>

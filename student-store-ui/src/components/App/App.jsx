@@ -21,8 +21,6 @@ export default function App() {
 
   const [searchInput, setSearchInput] = useState("");
 
- 
-
 
 
   useEffect(() => {
@@ -30,6 +28,8 @@ export default function App() {
       setProducts(response.data.products);
     });
   }, []);
+
+  
 
 
   const [sidebarOpen, setSidebar] = useState(false);
@@ -53,7 +53,7 @@ export default function App() {
             searchInput={searchInput}
             setSearchInput={setSearchInput}
           />
-          <Home products={products} category={category} />
+          <Home products={products} category={category} searchInput={searchInput}/>
         </main>
         {/* 
         <Routes>

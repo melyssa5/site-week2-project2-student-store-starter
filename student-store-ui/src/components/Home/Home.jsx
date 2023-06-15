@@ -2,7 +2,7 @@ import * as React from "react"
 import "./Home.css"
 import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 
-export default function Home({products, category}) {
+export default function Home({products, category, searchInput}) {
 
   function createProduct(info) {
     return (
@@ -16,7 +16,6 @@ export default function Home({products, category}) {
     );
   }
 
-
   const filtered = products.filter(product => {
     return product.category === category.toLowerCase();
   });
@@ -24,12 +23,18 @@ export default function Home({products, category}) {
 
   const returnItems = category == "All Categories" ? products : filtered;
 
+  const searchFiltered = returnItems.filter(product => {
+    return product.name.toLowerCase().includes(searchInput);
+  })
+
+
   return (
     <div className="home">
       <div className="product-grid" id="Buy">
         <div className="content">
           <div className="grid">
-            {returnItems.map((product) => createProduct(product))}
+            {/* {returnItems.map((product) => createProduct(product))} */}
+            {searchInput == "" ? ( returnItems.map((p) => createProduct(p))) : ( searchFiltered.map((p) => createProduct(p)))}
           </div>
         </div>
       </div>

@@ -18,7 +18,7 @@ export default function SubNavbar({category, setCategory, searchInput, setSearch
   }
 
   const searchItems = (searchValue) => {
-    setSearchInput(searchValue)
+    setSearchInput(searchValue.toLowerCase())
 }
 
   return (
@@ -26,7 +26,7 @@ export default function SubNavbar({category, setCategory, searchInput, setSearch
       <div className="content">
         <div className="row">
           <div className="search-bar">
-            <input type="text" onChange={(e) => searchItems(e.target.value)} name="search" placeholder="Search"/>
+            <input type="text" onChange={(e) => searchItems(e.target.value)} name="search" placeholder="Search" value={searchInput}/>
             <i className="material-icons">search</i>
           </div>
           <div className="links">

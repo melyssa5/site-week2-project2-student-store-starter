@@ -11,27 +11,6 @@ import ProductDetail from "../ProductDetail/ProductDetail";
 
 export default function Overlay( {category, setCategory, searchInput, setSearchInput, sidebarOpen, handleOnToggle}) {
   
-
-//   const [products, setProducts] = useState([]);
-
-  // variable that keeps track of the variable that is currently selected in the category menu
-//   const [category, setCategory] = useState("All Categories");
-
-  // variable that keeps track of search inputs
-//   const [searchInput, setSearchInput] = useState("");
-
-//   useEffect(() => {
-//     axios.get(url).then((response) => {
-//       setProducts(response.data.products);
-//     });
-//   }, []);
-
-//   const [sidebarOpen, setSidebar] = useState(false);
-
-//   function handleOnToggle() {
-//     setSidebar(!sidebarOpen);
-//   }
-
   return (
     <main>
     

@@ -3,8 +3,6 @@ import ProductCard from "../ProductCard/ProductCard";
 
 export default function ProductView({product}){
 
-    console.log(product);
-
     return (
         <div className="product-view">
             <h1 className="product-id"> Product # {product.id} </h1>

@@ -3,11 +3,10 @@ import ProductCard from "../ProductCard/ProductCard";
 
 export default function ProductView({product, productId}){
 
-
     return(
         <div className="product-view">
             <h1 className="product-id"> Product # {productId} </h1>
-            <ProductCard />
+            <ProductCard product={product} productId={productId} showDescription={true} />
         </div>
     )
 }

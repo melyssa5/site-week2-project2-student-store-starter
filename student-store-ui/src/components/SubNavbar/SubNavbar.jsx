@@ -32,12 +32,12 @@ export default function SubNavbar({category, setCategory, searchInput, setSearch
           <div className="links">
             <span className="help">
               <i className="material-icons">help</i>
-              "Help"
+              Help
             </span>
             <div className="cart">
               <a href="/">
-                "My Cart"
-                <i className="material-ions">shopping_cart</i>
+                My Cart
+                <i className="material-icons">shopping_cart</i>
               </a>
             </div>
           </div>

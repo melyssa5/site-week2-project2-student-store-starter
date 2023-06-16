@@ -7,8 +7,6 @@ export default function ProductCard({ product, productId, showDescription }) {
     // create function that takes in price from api and returns it in a correct format
 
 
-
-    
   return (
     <div className="product-view-card">
       <div className="product-card">

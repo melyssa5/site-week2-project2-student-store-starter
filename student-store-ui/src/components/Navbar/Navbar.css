@@ -1,33 +1,83 @@
-nav{
+ :root {
+    --side-padding: 40px;
+    --content-width: 1100px;
+    --dark-blue: #2c4047;
+    --bright-green: #00c385;
+    --pure-white: #fff;
+    --grey-bg: #f7f7f7;
+    --accent-orange: #ff9017;
+    --bright-red: #fe3210;
+    --muted: #969696;
+    --font-dark: #212121;
+    --font-light: #5b5b5b;
+    --border-color: #e4e4e4;
+    --star-color-filled: #e5a800;
+    --star-color-empty: #cbd4e6;
+}
+
+ .navbar {
+    width: 100%;
+    max-width: 100vw;
+    background: #b20663;
+    color: white;
+    height: 70px;
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 var(--side-padding);
+}
+
+.navbar .content {
+    max-width: var(--content-width);
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navbar .content .logo {
+    width: 100px;
+    margin-right: 50px;
+}
+
+.navbar a {
+    color: #fff;
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar .content .socials {
+    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background-color: lavenderblush;
-    padding: 20px 80px;
+    width: 100px;
+    margin-right: 50px;
 }
 
-#navitems{
+.navbar .content .links {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    
-}
-#navitems ul{
-    text-align: right;
-}
-
-#navitems li{
-    display: inline-block;
-    padding: 0 20px;
-    position: relative;
-
+    justify-content: space-around;
+    list-style-type: none;
+    margin-left: auto;
+    flex: 1;
+    max-width: 650px;
 }
 
-
-#navitems li a{
-    text-decoration: none;
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: black;
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
 }
 
+.navbar a {
+    color: #fff;
+    font-weight: 800;
+    font-size: larger;
+}

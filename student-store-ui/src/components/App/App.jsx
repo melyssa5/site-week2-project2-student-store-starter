@@ -1,5 +1,5 @@
 import * as React from "react";
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Sidebar from "../Sidebar/Sidebar";
 import Home from "../Home/Home";
@@ -19,9 +19,7 @@ export default function App() {
   const [category, setCategory] = useState("All Categories");
 
   // variable that keeps track of search inputs
-
   const [searchInput, setSearchInput] = useState("");
-
 
 
   useEffect(() => {
@@ -57,9 +55,10 @@ export default function App() {
           <Home products={products} category={category} searchInput={searchInput}/>
         </main>
 
-        <Routes>
-          <Route path="/store/:id" element={<ProductDetail />} />
-        </Routes>
+        {/* <Routes>
+          <Route path="/" />
+          <Route path="store/:productId" element={<ProductDetail />} />
+        </Routes> */}
       </BrowserRouter>
     </div>
   );

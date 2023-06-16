@@ -1,9 +1,12 @@
 import * as React from "react";
 import "./Navbar.css";
+import { Outlet } from "react-router-dom";
+import Sidebar from "../Sidebar/Sidebar";
 
 export default function Navbar() {
 
   return (
+    <>
     <nav className="navbar">
       <div className="content">
         <div className="logo">
@@ -59,5 +62,8 @@ export default function Navbar() {
       
       </div>
     </nav>
+
+  
+    </>
   );
 }

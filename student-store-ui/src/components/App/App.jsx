@@ -9,6 +9,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ProductDetail from "../ProductDetail/ProductDetail";
+import Overlay from "../Overlay/Overlay";
 
 export default function App() {
   const url = "https://codepath-store-api.herokuapp.com/store";
@@ -28,20 +29,15 @@ export default function App() {
     });
   }, []);
 
-  
-
-
   const [sidebarOpen, setSidebar] = useState(false);
 
   function handleOnToggle() {
     setSidebar(!sidebarOpen);
   }
-
-
   return (
     <div className="app">
       <BrowserRouter>
-        <main>
+        {/* <main>
           <Navbar />
           <Sidebar isOpen={sidebarOpen} handleOnToggle={handleOnToggle} />
           <Hero />
@@ -53,12 +49,16 @@ export default function App() {
             setSearchInput={setSearchInput}
           />
           <Home products={products} category={category} searchInput={searchInput}/>
-        </main>
+        </main> */}
 
-        {/* <Routes>
-          <Route path="/" />
-          <Route path="store/:productId" element={<ProductDetail />} />
-        </Routes> */}
+        <Routes>
+          <Route path="" element={<Overlay category={category} setCategory={setCategory} searchInput={searchInput} setSearchInput={setSearchInput} sidebarOpen={sidebarOpen} handleOnToggle={handleOnToggle}/>}>
+            <Route path="" element={<Home products={products} category={category} searchInput={searchInput}/>} />
+            <Route path="products/:productId" element={<ProductDetail />} /> 
+          </Route>
+            
+          
+        </Routes>
       </BrowserRouter>
     </div>
   );

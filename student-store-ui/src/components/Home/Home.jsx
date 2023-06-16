@@ -33,7 +33,6 @@ export default function Home({products, category, searchInput}) {
       <div className="product-grid" id="Buy">
         <div className="content">
           <div className="grid">
-            {/* {returnItems.map((product) => createProduct(product))} */}
             {searchInput == "" ? ( returnItems.map((p) => createProduct(p))) : ( searchFiltered.map((p) => createProduct(p)))}
           </div>
         </div>

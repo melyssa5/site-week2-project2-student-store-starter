@@ -1,11 +1,12 @@
 import * as React from "react";
 
-export default function ProductCard({ product, productId, showDescription }) {
+export default function ProductCard({ product }) {
 
 
 
     // create function that takes in price from api and returns it in a correct format
 
+    console.log(product)
 
   return (
     <div className="product-view-card">

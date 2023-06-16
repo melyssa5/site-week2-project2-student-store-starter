@@ -1,6 +1,6 @@
 import * as React from "react"
 import "./Home.css"
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Home({products, category, searchInput}) {
 
@@ -8,7 +8,9 @@ export default function Home({products, category, searchInput}) {
     return (
       <div className="product-card">
         <div className="media">
+          <Link to={"/products/" + info.id} >
           <img src={info.image} />
+          </Link>
         </div>
         <p>{info.name}</p>
         <p>{info.price}</p>

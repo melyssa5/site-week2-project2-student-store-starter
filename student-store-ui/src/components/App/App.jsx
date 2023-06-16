@@ -22,7 +22,6 @@ export default function App() {
   // variable that keeps track of search inputs
   const [searchInput, setSearchInput] = useState("");
 
-
   useEffect(() => {
     axios.get(url).then((response) => {
       setProducts(response.data.products);
@@ -50,15 +49,35 @@ export default function App() {
           />
           <Home products={products} category={category} searchInput={searchInput}/>
         </main> */}
-
-        <Routes>
-          <Route path="" element={<Overlay category={category} setCategory={setCategory} searchInput={searchInput} setSearchInput={setSearchInput} sidebarOpen={sidebarOpen} handleOnToggle={handleOnToggle}/>}>
-            <Route path="" element={<Home products={products} category={category} searchInput={searchInput}/>} />
-            <Route path="products/:productId" element={<ProductDetail />} /> 
-          </Route>
-            
-          
-        </Routes>
+        <main>
+          <Routes>
+            <Route
+              path=""
+              element={
+                <Overlay
+                  category={category}
+                  setCategory={setCategory}
+                  searchInput={searchInput}
+                  setSearchInput={setSearchInput}
+                  sidebarOpen={sidebarOpen}
+                  handleOnToggle={handleOnToggle}
+                />
+              }
+            >
+              <Route
+                path=""
+                element={
+                  <Home
+                    products={products}
+                    category={category}
+                    searchInput={searchInput}
+                  />
+                }
+              />
+              <Route path="/products/:id" element={<ProductDetail />} />
+            </Route>
+          </Routes>
+        </main>
       </BrowserRouter>
     </div>
   );

@@ -10,7 +10,7 @@ import axios from "axios";
 import ProductDetail from "../ProductDetail/ProductDetail";
 
 export default function Overlay( {category, setCategory, searchInput, setSearchInput, sidebarOpen, handleOnToggle}) {
-  const url = "https://codepath-store-api.herokuapp.com/store";
+  
 
 //   const [products, setProducts] = useState([]);
 
@@ -34,6 +34,7 @@ export default function Overlay( {category, setCategory, searchInput, setSearchI
 
   return (
     <main>
+    
       <Navbar />
       <Hero />
     
@@ -45,8 +46,10 @@ export default function Overlay( {category, setCategory, searchInput, setSearchI
             searchInput={searchInput}
             setSearchInput={setSearchInput}
           />
+   
       <Outlet />
-
-    </main>
+      
+      </main>
+   
   );
 }

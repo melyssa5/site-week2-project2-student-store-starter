@@ -30,9 +30,7 @@ export default function App() {
 
   const [sidebarOpen, setSidebar] = useState(false);
 
-  function handleOnToggle() {
-    setSidebar(!sidebarOpen);
-  }
+
   return (
     <div className="app">
       <BrowserRouter>
@@ -60,7 +58,8 @@ export default function App() {
                   searchInput={searchInput}
                   setSearchInput={setSearchInput}
                   sidebarOpen={sidebarOpen}
-                  handleOnToggle={handleOnToggle}
+                  setSideBar={setSidebar}
+                
                 />
               }
             >

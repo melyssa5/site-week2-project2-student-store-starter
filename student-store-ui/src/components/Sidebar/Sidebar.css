@@ -15,6 +15,13 @@
     border-right: solid 1px black;
 }
 
+.sidebar.closed {
+    width: 60px;
+} 
+.sidebar.open {
+    width: 575px;
+}
+
 .sidebar .wrapper{
     display: flex;
     flex-direction: column;

@@ -1,12 +1,15 @@
 import * as React from "react";
 import "./Sidebar.css";
 
-export default function Sidebar({isOpen, handleOnToggle}) {
+export default function Sidebar({isOpen, setSidebar}) {
 
   const sidebar = isOpen ? "sidebar open":"sidebar closed";
 
-  
+  function handleOnToggle() {
+    setSidebar(!isOpen);
+  }
 
+  
   return (
     <section className= {sidebar}>
       <div className="wrapper">

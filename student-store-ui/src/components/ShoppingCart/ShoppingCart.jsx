@@ -1,6 +1,7 @@
 import * as React from "react";
+import "./ShoppingCart.css";
 
-export default function ShoppingCart(isOpen, products, shoppingCart) {
+export default function ShoppingCart(isOpen) {
     
   return (
     <div className="shopping-cart">

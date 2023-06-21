@@ -1,5 +1,6 @@
 import * as React from "react";
 import "./Home.css";
+import ProductCard from "../ProductCard/ProductCard"
 import { Link } from "react-router-dom";
 
 export default function Home({ products, category, searchInput }) {
@@ -33,7 +34,7 @@ export default function Home({ products, category, searchInput }) {
         <div className="content">
           <div className="grid">
             {searchInput == ""
-              ? returnItems.map((p) => createProduct(p))
+              ? returnItems.map((p) => <ProductCard product={p} />)
               : searchFiltered.map((p) => createProduct(p))}
           </div>
         </div>

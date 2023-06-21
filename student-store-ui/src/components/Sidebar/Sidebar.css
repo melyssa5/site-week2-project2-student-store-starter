@@ -41,7 +41,7 @@
 .shopping-cart {
     width: 100%;
 }
-.shopping-cart .icons {
+.shopping-cart .cart-icons {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,4 +60,8 @@
     cursor: pointer;
     color: white;
     ;
+}
+
+.sidebar .toggle-button.open {
+    transform: rotateY(180deg);
 }

@@ -13,6 +13,7 @@ import Overlay from "../Overlay/Overlay";
 
 export default function App() {
   const url = "https://codepath-store-api.herokuapp.com/store";
+  const apiServer = "http://localhost:3001/"
 
   const [products, setProducts] = useState([]);
 
@@ -34,19 +35,6 @@ export default function App() {
   return (
     <div className="app">
       <BrowserRouter>
-        {/* <main>
-          <Navbar />
-          <Sidebar isOpen={sidebarOpen} handleOnToggle={handleOnToggle} />
-          <Hero />
-          
-          <SubNavbar
-            category={category}
-            setCategory={setCategory}
-            searchInput={searchInput}
-            setSearchInput={setSearchInput}
-          />
-          <Home products={products} category={category} searchInput={searchInput}/>
-        </main> */}
         <main>
           <Routes>
             <Route

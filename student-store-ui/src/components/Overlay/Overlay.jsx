@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import ProductDetail from "../ProductDetail/ProductDetail";
 
-export default function Overlay( {category, setCategory, searchInput, setSearchInput, sidebarOpen, setSideBar}) {
+export default function Overlay( {category, setCategory, searchInput, setSearchInput, sidebarOpen, setSideBar, quantityDictionary, products, shoppingCart}) {
   
   return (
     <main>
@@ -17,7 +17,7 @@ export default function Overlay( {category, setCategory, searchInput, setSearchI
       <Navbar />
       <Hero />
     
-      <Sidebar isOpen={sidebarOpen} setSidebar={setSideBar}/>
+      <Sidebar isOpen={sidebarOpen} setSidebar={setSideBar} quantityDictionary={quantityDictionary} products={products} shoppingCart={shoppingCart}/>
      
       <SubNavbar
             category={category}

@@ -117,6 +117,9 @@ export default function App() {
                   setSearchInput={setSearchInput}
                   sidebarOpen={sidebarOpen}
                   setSideBar={setSidebar}
+                  quantityDictionary={quantity}
+                  products={products}
+                  shoppingCart={shoppingCart}
                 />
               }
             >
@@ -130,6 +133,7 @@ export default function App() {
                     handleAdd={handleAddItemToCart}
                     handleRemove={handleRemoveItemToCart}
                     getQuantity={getQuantityItem}
+                    
                     
                   />
                 }

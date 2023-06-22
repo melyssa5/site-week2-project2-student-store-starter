@@ -22,11 +22,48 @@ export default function App() {
 
   const [sidebarOpen, setSidebar] = useState(false);
 
+  const [quantity, setQuantity] = useState({});
+
+  const [shoppingCart, setShoppingCart] = useState([]);
+
   useEffect(() => {
     axios.get(url).then((response) => {
       setProducts(response.data.products);
     });
   }, []);
+
+
+  function handleAddItemToCart(productId) {
+    if (productId in quantity){
+      const add = {...quantity, [{productId}]: quantity[{productId}] + 1};
+      setQuantity(add);
+    }else{
+      const create = {...quantity, [{productId}]: 1};
+      setQuantity(create);
+    }
+
+    const cartItem = shoppingCart?.find(item => item.id == {productId})
+
+    if (cartItem){
+      const updateCart = shoppingCart?.map(item => {
+        if (item.id == {productId}){
+          return {...item, quantity:item.quantity+1}
+        }
+        return item
+      })
+      setShoppingCart(updateCart);
+    }else{
+      setShoppingCart([...shoppingCart, {id: {productId}, quantity: 1}])
+    }
+
+  }
+
+  console.log(shoppingCart)
+  
+    
+
+
+   
 
 
   return (
@@ -44,7 +81,6 @@ export default function App() {
                   setSearchInput={setSearchInput}
                   sidebarOpen={sidebarOpen}
                   setSideBar={setSidebar}
-                
                 />
               }
             >
@@ -55,6 +91,8 @@ export default function App() {
                     products={products}
                     category={category}
                     searchInput={searchInput}
+                    handleAdd={handleAddItemToCart}
+                    
                   />
                 }
               />

@@ -1,17 +1,11 @@
 import * as React from "react";
 import "./ProductCard.css"
 
-export default function ProductCard({ product, showDesc }) {
+export default function ProductCard({ product, showDesc, handleAdd }) {
   // create function that takes in price from api and returns it in a correct format
 
-  // creates the span element that shows the quantity of the product
-  function addQuantityDisplay() {
-    return (
-      <span className="quantity">
-        <span className="amt">1</span>
-      </span>
-    );
-  }
+
+
 
   return (
       <div className="product-card">
@@ -103,7 +97,7 @@ export default function ProductCard({ product, showDesc }) {
           </div>
           <div className="actions">
             <div className="buttons">
-              <button className="add">
+              <button className="add" onClick={()=>{handleAdd(product.id)}}>
                 <i className="material-icons">add</i>
               </button>
               <button className="remove">

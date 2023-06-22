@@ -1,10 +1,19 @@
 import * as React from "react";
+import "./ProductCard.css"
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, showDesc }) {
   // create function that takes in price from api and returns it in a correct format
 
+  // creates the span element that shows the quantity of the product
+  function addQuantityDisplay() {
+    return (
+      <span className="quantity">
+        <span className="amt">1</span>
+      </span>
+    );
+  }
+
   return (
-    <div className="product-view-card">
       <div className="product-card">
         <div className="media">
           <a href={"/products/" + product.id}>
@@ -13,7 +22,7 @@ export default function ProductCard({ product }) {
         </div>
         <div className="product-info">
           <div className="main-info">
-            <p className="product-name">Rice Krispies</p>
+            <p className="product-name">{product.name}</p>
             <div className="stars">
               <svg
                 x="0px"
@@ -86,13 +95,11 @@ export default function ProductCard({ product }) {
                 ></path>
               </svg>
             </div>
-            <p className="product-price">$0.99</p>
+            <p className="product-price">{product.price}</p>
           </div>
           <div className="desc">
-            <p className="product-description">
-              Delicious corn-based rice grains melted together with marshmallows
-              into a square-like shape.
-            </p>
+            {showDesc? <p className="product-description">{product.description}</p> : <p></p> }
+           
           </div>
           <div className="actions">
             <div className="buttons">
@@ -105,18 +112,6 @@ export default function ProductCard({ product }) {
             </div>
           </div>
         </div>
-        {/* <div className="product-info">
-          <div className="main-info">
-            <p className="product-name">{product.name}</p>
-            <div className="stars"> </div>
-            <p className="product-price">{product.price}</p>
-          </div>
-          <div className="desc">
-            <p className="product-description">{product.description}</p>
-          </div>
-          <div className="actions"> </div>
-        </div> */}
       </div>
-    </div>
   );
 }

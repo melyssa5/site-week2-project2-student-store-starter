@@ -32,9 +32,10 @@ export default function Home({ products, category, searchInput }) {
     <div className="home">
       <div className="product-grid" id="Buy">
         <div className="content">
+        <h3>Best Selling Products</h3>
           <div className="grid">
             {searchInput == ""
-              ? returnItems.map((p) => <ProductCard product={p} />)
+              ? returnItems.map((p) => <ProductCard product={p} showDesc={false}/>)
               : searchFiltered.map((p) => createProduct(p))}
           </div>
         </div>

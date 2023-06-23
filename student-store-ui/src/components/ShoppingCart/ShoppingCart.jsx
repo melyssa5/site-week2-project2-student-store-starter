@@ -1,30 +1,37 @@
 import * as React from "react";
 import "./ShoppingCart.css";
+import { useState } from "react";
 
 export default function ShoppingCart(products, shoppingCartArray, quantities) {
-  // as soon as shoppingCart gets to a length of 1, you want to render the table in shopping cart
-  // for each item in shopping cart, find the product that matches with the id from products
-  // then using that item, render the row using info from products array
-  // also look at the quantity. if there is only one,
 
-  console.log(products)
+  let total = 0;
+
+
 
   function renderRow(id) {
-    let product = products.products?.find(item => item.id ==id)
+    let product = products.products?.find((item) => item.id == id);
+    
     
     let quantityItem = products.quantities[id];
+    total += product.price * quantityItem;
     return (
-    <div className="product-row">
-      <span className="flex-2 cart-product-name">{product.name}</span>
-      <span className="center cart-product-quantity"> {quantityItem} </span>
-      <span className="center cart-product-price">{product.price}</span>
-      <span className="center cart-product-subtotal">{product.price * quantityItem}</span>
-    </div>
-    )
+      <div className="product-row">
+        <span className="flex-2 cart-product-name">{product.name}</span>
+        <span className="center cart-product-quantity"> {quantityItem} </span>
+        <span className="center cart-product-price">{product.price}</span>
+        <span className="center cart-product-subtotal">
+          {product.price * quantityItem}
+        </span>
+      </div>
+    );
   }
 
   function renderTable() {
-    let rows = products.shoppingCartArray?.map(item => {return renderRow(item.id)})
+    let rows = products.shoppingCartArray?.map((item) => {
+      return renderRow(item.id);
+    });
+
+    let tax = total * .0875
     return (
       <div className="CartTable">
         <div className="header">
@@ -37,11 +44,29 @@ export default function ShoppingCart(products, shoppingCartArray, quantities) {
         </div>
         {rows}
 
+        <div className="receipt">
+          <div className="receipt-subtotal">
+            <span className="label">Subtotal</span>
+            <span></span>
+            <span></span>
+            <span className="center subtotal">{total}</span>
+          </div>
+          <div className="receipt-taxes">
+            <span className="label">Taxes and Fees</span>
+            <span></span>
+            <span></span>
+            <span className="center">{tax}</span>
+          </div>
+          <div className="receipt-total">
+            <span className="label">Total</span>
+            <span></span>
+            <span></span>
+            <span className="center total-price">{total + tax}</span>
+          </div>
+        </div>
       </div>
     );
   }
-
-
 
   return (
     <div className="shopping-cart">
@@ -52,13 +77,14 @@ export default function ShoppingCart(products, shoppingCartArray, quantities) {
             <i className="material-icons md-48">add_shopping_cart</i>
           </span>
         </h3>
-        
 
-       
-      {products.shoppingCartArray.length > 0? (renderTable()) : (
-        <div className="notification">
-          No items added to cart yet. Start shopping now!
-        </div>)} 
+        {products.shoppingCartArray.length > 0 ? (
+          renderTable()
+        ) : (
+          <div className="notification">
+            No items added to cart yet. Start shopping now!
+          </div>
+        )}
         <div className="checkout-form">
           <h3 className="">
             Payment Info{" "}

@@ -7,7 +7,9 @@ export default function Sidebar({
   setSidebar,
   quantityDictionary,
   products,
-  shoppingCartArr
+  shoppingCartArr,
+  handleCheckoutFormChange, 
+  checkoutForm
 }) {
 
   console.log("sidebar products")
@@ -42,8 +44,6 @@ export default function Sidebar({
     );
   }
 
-  console.log("SIDEBAR")
-  console.log(shoppingCartArr)
 
 
   return (
@@ -57,6 +57,8 @@ export default function Sidebar({
             products={products}
             shoppingCartArray={shoppingCartArr}
             quantities={quantityDictionary}
+            checkoutForm = {checkoutForm}
+            handleCheckoutFormChange={handleCheckoutFormChange}
           />
         ) : (
           showIcons()

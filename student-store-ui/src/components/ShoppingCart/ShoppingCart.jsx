@@ -1,15 +1,18 @@
 import * as React from "react";
 import "./ShoppingCart.css";
 
-export default function ShoppingCart(products, shoppingCart, quantities) {
+export default function ShoppingCart(products, shoppingCartArray, quantities) {
   // as soon as shoppingCart gets to a length of 1, you want to render the table in shopping cart
   // for each item in shopping cart, find the product that matches with the id from products
   // then using that item, render the row using info from products array
   // also look at the quantity. if there is only one,
 
+  console.log(products)
+
   function renderRow(id) {
-    let product = {products}?.find((p)=> {p.id==id})
-    let quantityItem = quantities[id];
+    let product = products.products?.find(item => item.id ==id)
+    
+    let quantityItem = products.quantities[id];
     return (
     <div className="product-row">
       <span className="flex-2 cart-product-name">{product.name}</span>
@@ -21,6 +24,7 @@ export default function ShoppingCart(products, shoppingCart, quantities) {
   }
 
   function renderTable() {
+    let rows = products.shoppingCartArray?.map(item => {return renderRow(item.id)})
     return (
       <div className="CartTable">
         <div className="header">
@@ -31,11 +35,13 @@ export default function ShoppingCart(products, shoppingCart, quantities) {
             <span className="center">Cost</span>
           </div>
         </div>
-        {renderRow(1)}
-        
+        {rows}
+
       </div>
     );
   }
+
+
 
   return (
     <div className="shopping-cart">
@@ -46,11 +52,13 @@ export default function ShoppingCart(products, shoppingCart, quantities) {
             <i className="material-icons md-48">add_shopping_cart</i>
           </span>
         </h3>
+        
+
        
-        {/* {shoppingCart.length > 0? renderTable : (
+      {products.shoppingCartArray.length > 0? (renderTable()) : (
         <div className="notification">
           No items added to cart yet. Start shopping now!
-        </div>)} */}
+        </div>)} 
         <div className="checkout-form">
           <h3 className="">
             Payment Info{" "}

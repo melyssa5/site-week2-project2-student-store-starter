@@ -7,8 +7,12 @@ export default function Sidebar({
   setSidebar,
   quantityDictionary,
   products,
-  shoppingCart,
+  shoppingCartArr
 }) {
+
+  console.log("sidebar products")
+  console.log(products)
+
   const sidebarClass = isOpen ? "sidebar open" : "sidebar closed";
   const buttonClass = isOpen
     ? "toggle-button button open"
@@ -38,6 +42,10 @@ export default function Sidebar({
     );
   }
 
+  console.log("SIDEBAR")
+  console.log(shoppingCartArr)
+
+
   return (
     <section className={sidebarClass}>
       <div className="wrapper">
@@ -47,7 +55,7 @@ export default function Sidebar({
         {isOpen ? (
           <ShoppingCart
             products={products}
-            shoppingCart={shoppingCart}
+            shoppingCartArray={shoppingCartArr}
             quantities={quantityDictionary}
           />
         ) : (

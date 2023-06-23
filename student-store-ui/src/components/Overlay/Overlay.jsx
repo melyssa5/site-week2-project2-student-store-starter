@@ -10,14 +10,15 @@ import axios from "axios";
 import ProductDetail from "../ProductDetail/ProductDetail";
 
 export default function Overlay( {category, setCategory, searchInput, setSearchInput, sidebarOpen, setSideBar, quantityDictionary, products, shoppingCart}) {
-  
+  console.log("overlay")
+  console.log(products)
   return (
     <main>
     
       <Navbar />
       <Hero />
-    
-      <Sidebar isOpen={sidebarOpen} setSidebar={setSideBar} quantityDictionary={quantityDictionary} products={products} shoppingCart={shoppingCart}/>
+
+      <Sidebar isOpen={sidebarOpen} setSidebar={setSideBar} quantityDictionary={quantityDictionary} products={products} shoppingCartArr={shoppingCart}/>
      
       <SubNavbar
             category={category}

@@ -32,6 +32,8 @@ export default function App() {
     });
   }, []);
 
+  console.log("app")
+  console.log(products)
 
   function handleAddItemToCart(productId) {
     if (productId in quantity){
@@ -48,7 +50,7 @@ export default function App() {
       const updateCart = shoppingCart?.map(item => {
             if (item.id == productId){
               
-          return {...item, quantity:item.quantity+1}
+             return {...item, quantity:item.quantity+1}
         }
         return item
       })
@@ -96,12 +98,6 @@ export default function App() {
   }
 
 
-
-  
-
-   
-
-
   return (
     <div className="app">
       <BrowserRouter>
@@ -133,7 +129,6 @@ export default function App() {
                     handleAdd={handleAddItemToCart}
                     handleRemove={handleRemoveItemToCart}
                     getQuantity={getQuantityItem}
-                    
                     
                   />
                 }

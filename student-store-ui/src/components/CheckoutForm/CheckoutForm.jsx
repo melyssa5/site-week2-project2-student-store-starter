@@ -2,27 +2,27 @@ import * as React from "react";
 
 export default function CheckoutForm({shoppingCart, checkoutForm, handleCheckoutFormChange}){
 
-  const [receipt, setReceipt] = useState({});
+  // const [receipt, setReceipt] = useState({});
 
 
-  function checkCheckoutForm(){
-    if (checkoutForm.name.length == 0 || checkoutForm.email.length == 0 ){
-      return false;
-    }
-    return true;
-  }
+  // function checkCheckoutForm(){
+  //   if (checkoutForm.name.length == 0 || checkoutForm.email.length == 0 ){
+  //     return false;
+  //   }
+  //   return true;
+  // }
 
 
-  function handleCheckoutButton(){
-    if (shoppingCart.length == 0){
-      return (<p className="is-danger">No cart or items in cart found to checkout.</p>)
-    }
-    if (!checkCheckoutForm){
-      return (<p class="is-danger">User info must include an email and name.</p>)
-    }
+  // function handleCheckoutButton(){
+  //   if (shoppingCart.length == 0){
+  //     return (<p className="is-danger">No cart or items in cart found to checkout.</p>)
+  //   }
+  //   if (!checkCheckoutForm){
+  //     return (<p class="is-danger">User info must include an email and name.</p>)
+  //   }
 
 
-  }
+  // }
 
     return(
         <div className="checkout-form">

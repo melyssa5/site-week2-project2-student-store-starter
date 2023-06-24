@@ -41,6 +41,9 @@ Check out our [deployed Student Store](https://codepath-student-store-demo.surge
 
 ### Core Features
 
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/a7beb21d74db4827a63274e421f87a7a?sid=f0788c89-a47d-4a3c-b23e-bcc704a248f6" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+
 - [x] User can click to expand the shopping cart in the left navigation.
 - [x] Users can click the '+' button on a product cart to increment that product in the shopping cart.
 - [x] Users can click the '-' button on a product cart to decrement that product in the shopping cart. If the count is zero, the product should be removed from the cart.

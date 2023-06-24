@@ -8,6 +8,7 @@ import ProductDetail from "../ProductDetail/ProductDetail";
 import Overlay from "../Overlay/Overlay";
 
 export default function App() {
+  
   const url = "https://codepath-store-api.herokuapp.com/store";
   const apiServer = "http://localhost:3001/";
 
@@ -26,8 +27,10 @@ export default function App() {
   const [shoppingCart, setShoppingCart] = useState([]);
 
   //holds user information
-  const [checkoutForm, setCheckoutForm] = useState({name: '', email: ''});
+  const [checkoutForm, setCheckoutForm] = useState({ name: "", email: "" });
 
+  console.log("quantity dictionary")
+  console.log(quantity);
 
   useEffect(() => {
     axios.get(url).then((response) => {
@@ -35,23 +38,20 @@ export default function App() {
     });
   }, []);
 
-  function handleOnCheckoutFormChange(nameInput, text){
-    setCheckoutForm({...checkoutForm, [nameInput]: text})
+  function handleOnCheckoutFormChange(nameInput, text) {
+    setCheckoutForm({ ...checkoutForm, [nameInput]: text });
   }
-
-  console.log(checkoutForm);
 
   function handleAddItemToCart(productId) {
     if (productId in quantity) {
-      const add = { ...quantity, [productId]: quantity[productId] + 1 };
-      setQuantity(add);
+      setQuantity({ ...quantity, [productId]: quantity[productId] + 1 });
     } else {
-      const create = { ...quantity, [productId]: 1 };
-      setQuantity(create);
+      setQuantity({ ...quantity, [productId]: 1 });
     }
 
     const cartItem = shoppingCart?.find((item) => item.id == productId);
-
+    
+    
     if (cartItem) {
       const updateCart = shoppingCart?.map((item) => {
         if (item.id == productId) {
@@ -64,6 +64,8 @@ export default function App() {
       setShoppingCart([...shoppingCart, { id: productId, quantity: 1 }]);
     }
   }
+
+
 
   function handleRemoveItemToCart(productId) {
     if (productId in quantity) {
@@ -92,21 +94,13 @@ export default function App() {
     }
   }
 
-  function getQuantityItem(itemId) {
-    if (itemId in quantity) {
-      if (quantity[itemId] > 0) {
-        return quantity[itemId];
-      }
-    } else return 0;
-  }
-
   return (
     <div className="app">
       <BrowserRouter>
-        <main>
+
           <Routes>
             <Route
-              path=""
+              path="/"
               element={
                 <Overlay
                   category={category}
@@ -124,7 +118,7 @@ export default function App() {
               }
             >
               <Route
-                path=""
+                path="/"
                 element={
                   <Home
                     products={products}
@@ -132,14 +126,22 @@ export default function App() {
                     searchInput={searchInput}
                     handleAdd={handleAddItemToCart}
                     handleRemove={handleRemoveItemToCart}
-                    getQuantity={getQuantityItem}
+                    quantityDictionary={quantity}
                   />
                 }
               />
-              <Route path="/products/:id" element={<ProductDetail />} />
+              <Route
+                path="/products/:id"
+                element={
+                  <ProductDetail
+                    handleAdd={handleAddItemToCart}
+                    handleRemove={handleRemoveItemToCart}
+                    quantityDictionary={quantity}
+                  />
+                }
+              />
             </Route>
           </Routes>
-        </main>
       </BrowserRouter>
     </div>
   );

@@ -1,13 +1,23 @@
 import * as React from "react";
 import "./ProductCard.css"
 
-export default function ProductCard({ product, showDesc, handleAdd, handleRemove, quantity }) {
+export default function ProductCard({ product, showDesc, handleAdd, handleRemove, quantityDictionary }) {
   // create function that takes in price from api and returns it in a correct format
 
+
+  function getQuantityItem(itemId) {
+    if (itemId in quantityDictionary) {
+      if (quantityDictionary[itemId] > 0) {
+        return quantityDictionary[itemId];
+      }
+    } else return 0;
+  } 
+
   function showQuantity(){
-    if (quantity > 0){
+    let count = getQuantityItem(product.id);
+    if (count > 0){
       return(
-        <span className="quantity"><span className="amt">{quantity}</span></span>
+        <span className="quantity"><span className="amt">{count}</span></span>
       )
     }
     return null;

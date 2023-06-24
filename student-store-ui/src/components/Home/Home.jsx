@@ -3,7 +3,7 @@ import "./Home.css";
 import ProductCard from "../ProductCard/ProductCard"
 import { Link } from "react-router-dom";
 
-export default function Home({ products, category, searchInput, handleAdd, handleRemove, getQuantity }) {
+export default function Home({ products, category, searchInput, handleAdd, handleRemove, quantityDictionary }) {
   function createProduct(info) {
     return (
       <div className="product-card">
@@ -35,8 +35,8 @@ export default function Home({ products, category, searchInput, handleAdd, handl
         <h3>Best Selling Products</h3>
           <div className="grid">
             {searchInput == ""
-              ? returnItems.map((p) => <ProductCard product={p} showDesc={false} handleAdd={handleAdd} handleRemove={handleRemove} quantity={getQuantity(p.id)}/>)
-              : searchFiltered.map((p) => createProduct(p))}
+              ? returnItems.map((p) => <ProductCard product={p} showDesc={false} handleAdd={handleAdd} handleRemove={handleRemove} quantityDictionary={quantityDictionary}/>)
+              : searchFiltered.map((p) => <ProductCard product={p} showDesc={false} handleAdd={handleAdd} handleRemove={handleRemove} quantityDictionary={quantityDictionary}/>)}
           </div>
         </div>
       </div>

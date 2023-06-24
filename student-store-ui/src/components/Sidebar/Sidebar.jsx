@@ -12,8 +12,6 @@ export default function Sidebar({
   checkoutForm
 }) {
 
-  console.log("sidebar products")
-  console.log(products)
 
   const sidebarClass = isOpen ? "sidebar open" : "sidebar closed";
   const buttonClass = isOpen

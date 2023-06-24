@@ -15,7 +15,7 @@ app.get('/', (req,res)=>{
 app.get('/store', (req,res)=>{
     
     res.status(200);
-    res.send('yas');
+    res.send(db);
 })
 
 

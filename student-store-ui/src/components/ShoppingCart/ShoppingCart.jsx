@@ -1,27 +1,23 @@
 import * as React from "react";
 import "./ShoppingCart.css";
-import CheckoutForm from "../CheckoutForm/CheckoutForm";
 
+import CheckoutForm from "../CheckoutForm/CheckoutForm";
 
 export default function ShoppingCart(products, shoppingCartArray, quantities) {
 
   let total = 0;
 
-
-
   function renderRow(id) {
     let product = products.products?.find((item) => item.id == id);
-    
-    
     let quantityItem = products.quantities[id];
     total += product.price * quantityItem;
     return (
       <div className="product-row">
         <span className="flex-2 cart-product-name">{product.name}</span>
         <span className="center cart-product-quantity"> {quantityItem} </span>
-        <span className="center cart-product-price">{product.price}</span>
+        <span className="center cart-product-price">{product.price.toFixed(2)}</span>
         <span className="center cart-product-subtotal">
-          {product.price * quantityItem}
+          {(product.price * quantityItem).toFixed(2)}
         </span>
       </div>
     );
@@ -32,7 +28,7 @@ export default function ShoppingCart(products, shoppingCartArray, quantities) {
       return renderRow(item.id);
     });
 
-    let tax = total * .0875
+    let tax = total * 0.0875;
     return (
       <div className="CartTable">
         <div className="header">
@@ -50,19 +46,19 @@ export default function ShoppingCart(products, shoppingCartArray, quantities) {
             <span className="label">Subtotal</span>
             <span></span>
             <span></span>
-            <span className="center subtotal">{total}</span>
+            <span className="center subtotal">{total.toFixed(2)}</span>
           </div>
           <div className="receipt-taxes">
             <span className="label">Taxes and Fees</span>
             <span></span>
             <span></span>
-            <span className="center">{tax}</span>
+            <span className="center">{tax.toFixed(2)}</span>
           </div>
           <div className="receipt-total">
             <span className="label">Total</span>
             <span></span>
             <span></span>
-            <span className="center total-price">{total + tax}</span>
+            <span className="center total-price">{(total + tax).toFixed(2)}</span>
           </div>
         </div>
       </div>
@@ -87,8 +83,13 @@ export default function ShoppingCart(products, shoppingCartArray, quantities) {
           </div>
         )}
 
-        <CheckoutForm shoppingCart={products.shoppingCartArray} checkoutForm={products.checkoutForm} handleCheckoutFormChange={products.handleCheckoutFormChange}/>
-
+        <CheckoutForm
+          shoppingCart={products.shoppingCartArray}
+          checkoutForm={products.checkoutForm}
+          handleCheckoutFormChange={products.handleCheckoutFormChange}
+          products={products.products}
+          quantities={products.quantities}
+        />
       </div>
     </div>
   );

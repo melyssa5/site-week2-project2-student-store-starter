@@ -89,6 +89,7 @@ export default function ShoppingCart(products, shoppingCartArray, quantities) {
           handleCheckoutFormChange={products.handleCheckoutFormChange}
           products={products.products}
           quantities={products.quantities}
+          setShoppingCart={products.setShoppingCart}
         />
       </div>
     </div>

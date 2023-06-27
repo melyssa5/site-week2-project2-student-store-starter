@@ -7,6 +7,7 @@ export default function CheckoutForm({
   handleCheckoutFormChange,
   products,
   quantities,
+  setShoppingCart
 }) {
   let [checkout, setCheckout] = useState(false);
 
@@ -38,13 +39,17 @@ export default function CheckoutForm({
     }
     else if (!checkCheckoutForm()) {
       setCheckout(false);
-    } else {setCheckout(true)};
+    } else {
+      setCheckout(true);
+      setShoppingCart([])};
   }
 
   function checkoutSuccess() {
     let rows = shoppingCart?.map((item) => {
       return renderListItem(item.id);
     });
+
+   
     return (
       <div className="checkout-success">
         <h3>
@@ -71,16 +76,15 @@ export default function CheckoutForm({
             </ul>
           </section>
           <footer className="card-foot">
-            <button className="button is-success">Shop More</button>
+            <button className="button is-success" onClick={(e) => {
+              setCheckout(false);
+            }}>Shop More</button>
             <button className="button">Exit</button>
           </footer>
         </div>
       </div>
     );
   }
-  console.log(shoppingCart)
-  console.log('BOOLEAN')
-  console.log(checkout)
 
   return (
     <div className="checkout-form">

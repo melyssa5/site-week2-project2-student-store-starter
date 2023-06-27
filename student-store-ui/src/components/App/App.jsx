@@ -114,6 +114,7 @@ export default function App() {
                   shoppingCart={shoppingCart}
                   handleCheckoutFormChange={handleOnCheckoutFormChange}
                   checkoutForm={checkoutForm}
+                  setShoppingCart={setShoppingCart}
                 />
               }
             >

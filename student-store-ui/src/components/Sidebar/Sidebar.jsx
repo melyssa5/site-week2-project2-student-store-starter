@@ -9,7 +9,8 @@ export default function Sidebar({
   products,
   shoppingCartArr,
   handleCheckoutFormChange, 
-  checkoutForm
+  checkoutForm,
+  setShoppingCart
 }) {
 
 
@@ -57,6 +58,7 @@ export default function Sidebar({
             quantities={quantityDictionary}
             checkoutForm = {checkoutForm}
             handleCheckoutFormChange={handleCheckoutFormChange}
+            setShoppingCart={setShoppingCart}
           />
         ) : (
           showIcons()

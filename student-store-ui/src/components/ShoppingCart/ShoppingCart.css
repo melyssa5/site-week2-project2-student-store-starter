@@ -190,3 +190,9 @@ a, span, div, p, h1, h2, h3, h4, h5, h6, ul, ol {
     font-family: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
     color: var(--font-dark);
 }
+
+.shopping-cart .receipt span.center {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+}

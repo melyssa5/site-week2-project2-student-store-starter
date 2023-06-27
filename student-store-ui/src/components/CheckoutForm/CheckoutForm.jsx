@@ -7,7 +7,8 @@ export default function CheckoutForm({
   handleCheckoutFormChange,
   products,
   quantities,
-  setShoppingCart
+  setShoppingCart,
+  setCheckoutForm
 }) {
   let [checkout, setCheckout] = useState(false);
 
@@ -77,7 +78,7 @@ export default function CheckoutForm({
           </section>
           <footer className="card-foot">
             <button className="button is-success" onClick={(e) => {
-              setCheckout(false);
+              setCheckout(false); setShoppingCart([]), setCheckoutForm({ name: "", email: "" });
             }}>Shop More</button>
             <button className="button">Exit</button>
           </footer>

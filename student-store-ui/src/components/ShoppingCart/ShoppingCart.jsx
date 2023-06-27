@@ -15,9 +15,9 @@ export default function ShoppingCart(products, shoppingCartArray, quantities) {
       <div className="product-row">
         <span className="flex-2 cart-product-name">{product.name}</span>
         <span className="center cart-product-quantity"> {quantityItem} </span>
-        <span className="center cart-product-price">{product.price.toFixed(2)}</span>
+        <span className="center cart-product-price">${product.price.toFixed(2)}</span>
         <span className="center cart-product-subtotal">
-          {(product.price * quantityItem).toFixed(2)}
+          ${(product.price * quantityItem).toFixed(2)}
         </span>
       </div>
     );
@@ -38,27 +38,28 @@ export default function ShoppingCart(products, shoppingCartArray, quantities) {
             <span className="center">Unit Price</span>
             <span className="center">Cost</span>
           </div>
+          {rows}
         </div>
-        {rows}
+        
 
         <div className="receipt">
           <div className="receipt-subtotal">
             <span className="label">Subtotal</span>
             <span></span>
             <span></span>
-            <span className="center subtotal">{total.toFixed(2)}</span>
+            <span className="center subtotal">${total.toFixed(2)}</span>
           </div>
           <div className="receipt-taxes">
             <span className="label">Taxes and Fees</span>
             <span></span>
             <span></span>
-            <span className="center">{tax.toFixed(2)}</span>
+            <span className="center">${tax.toFixed(2)}</span>
           </div>
           <div className="receipt-total">
             <span className="label">Total</span>
             <span></span>
             <span></span>
-            <span className="center total-price">{(total + tax).toFixed(2)}</span>
+            <span className="center total-price">${(total + tax).toFixed(2)}</span>
           </div>
         </div>
       </div>
@@ -90,6 +91,7 @@ export default function ShoppingCart(products, shoppingCartArray, quantities) {
           products={products.products}
           quantities={products.quantities}
           setShoppingCart={products.setShoppingCart}
+          setCheckoutForm={products.setCheckoutForm}
         />
       </div>
     </div>

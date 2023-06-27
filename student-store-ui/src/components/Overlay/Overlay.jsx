@@ -21,7 +21,8 @@ export default function Overlay({
   shoppingCart,
   handleCheckoutFormChange,
   checkoutForm,
-  setShoppingCart
+  setShoppingCart,
+  setCheckoutForm
 }) {
   return (
     <main>
@@ -37,6 +38,8 @@ export default function Overlay({
         handleCheckoutFormChange={handleCheckoutFormChange}
         checkoutForm={checkoutForm}
         setShoppingCart={setShoppingCart}
+        setCheckoutForm={setCheckoutForm}
+        
       />
 
       <SubNavbar

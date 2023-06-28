@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 
+
 export default function CheckoutForm({
   shoppingCart,
   checkoutForm,
@@ -46,6 +47,7 @@ export default function CheckoutForm({
   }
 
   function checkoutSuccess() {
+    
     let rows = shoppingCart?.map((item) => {
       return renderListItem(item.id);
     });
@@ -78,7 +80,7 @@ export default function CheckoutForm({
           </section>
           <footer className="card-foot">
             <button className="button is-success" onClick={(e) => {
-              setCheckout(false); setShoppingCart([]), setCheckoutForm({ name: "", email: "" });
+              setCheckout(false);
             }}>Shop More</button>
             <button className="button">Exit</button>
           </footer>
@@ -144,6 +146,8 @@ export default function CheckoutForm({
             className="button checkout-button"
             onClick={(e) => {
               handleCheckoutButtonWarning();
+              
+              setCheckoutForm({name: "", email: ""});
             }}
           >
             Checkout
